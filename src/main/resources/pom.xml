@@ -1,1 +1,59 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+                             http://maven.apache.org/maven-v4_0_0.xsd">
 
+  <modelVersion>4.0.0</modelVersion>
+
+  <!-- Координаты вашего проекта -->
+  <groupId>com.example</groupId>
+  <artifactId>drools-sample</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <!-- KJAR – архив знаний (Knowledge JAR) для Drools -->
+  <packaging>kjar</packaging>
+
+  <name>drools-sample</name>
+
+  <!-- Свойства, используемые в проекте -->
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+
+    <!-- Версия KIE/Drools. Подставьте нужную вам -->
+    <kie.version>7.73.0.Final</kie.version>
+  </properties>
+
+  <dependencies>
+    <!-- Основные зависимости для Drools -->
+    <dependency>
+      <groupId>org.drools</groupId>
+      <artifactId>drools-core</artifactId>
+      <version>${kie.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-api</artifactId>
+      <version>${kie.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-ci</artifactId>
+      <version>${kie.version}</version>
+    </dependency>
+    <!-- При необходимости можно подключить другие артефакты (drools-compiler, jbpm и т.д.) -->
+  </dependencies>
+
+  <build>
+    <plugins>
+      <!-- Плагин KIE для сборки KJAR и валидации правил -->
+      <plugin>
+        <groupId>org.kie</groupId>
+        <artifactId>kie-maven-plugin</artifactId>
+        <version>${kie.version}</version>
+        <extensions>true</extensions>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>
